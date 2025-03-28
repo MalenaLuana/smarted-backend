@@ -1,1 +1,1 @@
-# smarte-backend
+# smarted-backend
