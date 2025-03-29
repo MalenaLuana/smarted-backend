@@ -21,6 +21,17 @@ const personalDataModel = (sequelize) => {
       type: DataTypes.DATE,
       allowNull: false,
     },
+    phone: {
+      type: DataTypes.INTEGER,
+    },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    wishlist: {
+      type: DataTypes.ARRAY(DataTypes.INTEGER),
+      allowNull: true,
+    },
   });
 
   return PersonalData;

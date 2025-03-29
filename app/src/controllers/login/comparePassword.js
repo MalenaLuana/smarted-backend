@@ -2,6 +2,7 @@ import bcrypt from 'bcrypt';
 import { sequelize } from '../../db.js';
 import language from '../../language/index.js';
 import ERROR_STATUS from '../../utils/constants.js';
+import jwt from 'jsonwebtoken';
 
 const comparePassword = async (req, res) => {
   const { users } = sequelize.models;
@@ -23,10 +24,21 @@ const comparePassword = async (req, res) => {
         });
       } else {
         const passwordMatch = await bcrypt.compare(password, userData.password);
-        const { password: _, ...userWithoutPassword } = userData.dataValues;
+
         if (passwordMatch) {
-          console.log(userWithoutPassword);
-          res.status(200).json(userWithoutPassword);
+          const token = jwt.sign(
+            { id: userData.id, email: userData.email },
+            'secreto',
+            {
+              expiresIn: '5d',
+            },
+          );
+          const { email, user_name, role, id } = userData.dataValues;
+          const response = {
+            user: { id, email, name: user_name, role },
+            token,
+          };
+          res.status(200).json(response);
         } else {
           res.status(404).json({
             error: ERROR_STATUS.wrongPassword,

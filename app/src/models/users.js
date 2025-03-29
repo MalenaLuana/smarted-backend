@@ -39,6 +39,11 @@ const usersModels = (sequelize) => {
         allowNull: false,
         defaultValue: 'local',
       },
+      role: {
+        type: DataTypes.ENUM('user', 'admin'),
+        allowNull: false,
+        defaultValue: 'user',
+      },
     },
     {
       hooks: {

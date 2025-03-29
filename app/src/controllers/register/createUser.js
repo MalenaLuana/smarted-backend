@@ -21,7 +21,7 @@ const createUser = async (req, res) => {
       await users.create({
         user_name: name,
         email,
-        password: password ?? null,
+        password: password ?? null, //considero social login
         authType,
       });
       res.status(200).json({ status: 200, message: language.register.success });
