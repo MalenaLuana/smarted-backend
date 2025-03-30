@@ -37,7 +37,7 @@ const connectionDB = async () => {
 
     await loadModels();
     modelRelations(sequelize.models);
-    await sequelize.sync({ force: true }); //quitar cuando termine
+    await sequelize.sync({ force: false }); //quitar cuando termine
   } catch (error) {
     console.error(language.db.error, error.message);
   }

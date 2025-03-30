@@ -11,18 +11,19 @@ const personalDataModel = (sequelize) => {
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     last_name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     birthDay: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
     },
     phone: {
       type: DataTypes.INTEGER,
+      allowNull: true,
     },
     image: {
       type: DataTypes.STRING,
