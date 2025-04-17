@@ -17,7 +17,7 @@ const comparePassword = async (req, res) => {
         },
       });
 
-      if (userData === null) {
+      if (!userData) {
         res.status(400).send({
           error: ERROR_STATUS.userNotfound,
           message: login.userNotfound,
@@ -27,7 +27,7 @@ const comparePassword = async (req, res) => {
 
         if (passwordMatch) {
           const token = jwt.sign(
-            { id: userData.id, email: userData.email },
+            { id: userData.id, email: userData.email, role: userData.role },
             'secreto',
             {
               expiresIn: '5d',

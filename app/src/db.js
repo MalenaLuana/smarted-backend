@@ -34,7 +34,6 @@ const connectionDB = async () => {
   try {
     await sequelize.authenticate();
     console.log(language.db.success);
-
     await loadModels();
     modelRelations(sequelize.models);
     await sequelize.sync({ force: false }); //quitar cuando termine

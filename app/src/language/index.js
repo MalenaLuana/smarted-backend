@@ -10,8 +10,12 @@ const language = {
     success: 'Usuario creado con exito',
   },
   login: {
-    userNotfound: 'Usuario no encontrado',
-    wrongPassword: 'Contraseña incorrecta',
+    userNotfound: 'El email o la contraseña son incorrectos',
+    wrongPassword: 'El email o la contraseña son incorrectos',
+  },
+  products: {
+    createSuccess: 'El producto fue creado con éxito',
+    createDetailsSuccess: 'Detalles creados',
   },
 };
 
